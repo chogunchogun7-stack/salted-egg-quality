@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>เครื่องประเมินคุณภาพไข่เค็มอัจฉริยะ</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="frame">
+    <header class="topbar">
+      <div class="brand">เครื่องประเมินคุณภาพไข่เค็มอัจฉริยะ:</div>
+
+      <div class="top-actions">
+        <button id="btnStart" class="btn btn-primary">เริ่มวิเคราะห์</button>
+        <button id="btnStop" class="btn btn-ghost">หยุด</button>
+        <button id="btnClear" class="btn btn-ghost">ล้างข้อมูล</button>
+      </div>
+    </header>
+
+    <main class="content">
+      <!-- LEFT -->
+      <section class="left">
+        <div class="check-wrap">
+          <div class="check-icon" id="statusIcon">✓</div>
+          <div class="check-text" id="statusText">ประมวลผลเสร็จสิ้น</div>
+          <div class="sub-status" id="subStatus">พร้อมแสดงผล</div>
+        </div>
+
+        <div class="meter">
+          <div class="meter-bar">
+            <div id="meterFill" class="meter-fill" style="width:0%"></div>
+          </div>
+          <div class="meter-caption" id="meterCaption">
+            กด “เริ่มวิเคราะห์” เพื่อประเมินระดับความเค็ม
+          </div>
+        </div>
+      </section>
+
+      <!-- CENTER -->
+      <section class="center">
+        <div class="egg">
+          <svg viewBox="0 0 300 380" aria-label="egg">
+            <defs>
+              <linearGradient id="g" x1="0" x2="0" y1="0" y2="1">
+                <stop offset="0" stop-color="#ffffff" stop-opacity="0.98"/>
+                <stop offset="1" stop-color="#f1f4ff" stop-opacity="0.98"/>
+              </linearGradient>
+              <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+                <feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#000" flood-opacity="0.18"/>
+              </filter>
+            </defs>
+            <path filter="url(#shadow)"
+              d="M150 20
+                 C105 20 70 60 62 110
+                 C52 175 50 215 55 255
+                 C65 330 105 360 150 360
+                 C195 360 235 330 245 255
+                 C250 215 248 175 238 110
+                 C230 60 195 20 150 20 Z"
+              fill="url(#g)"/>
+          </svg>
+        </div>
+
+        <div class="center-badge" id="centerBadge">พร้อม</div>
+        <div class="center-title" id="centerTitle">วางไข่ไว้ตรงกลางเพื่อเริ่มประเมิน</div>
+        <div class="center-timer" id="centerTimer"> </div>
+      </section>
+
+      <!-- RIGHT -->
+      <section class="right">
+        <div class="pill">ผลการประเมิน</div>
+
+        <div class="result">
+          <div id="grade" class="grade">—</div>
+
+          <div class="salt">
+            <div class="salt-label">ความเค็มโดยประมาณ: <span id="saltPct">—</span></div>
+            <div id="saltDesc" class="salt-sub">ยังไม่มีผลลัพธ์</div>
+          </div>
+
+          <div class="card">
+            <div class="card-title">วิธีกินให้อร่อย</div>
+            <div class="chips" id="chips">
+              <span class="chip muted">รอผลวิเคราะห์เพื่อแนะนำเมนู</span>
+            </div>
+          </div>
+
+          <div class="stamp">อัปเดตล่าสุด <span id="stampTime">—</span></div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
